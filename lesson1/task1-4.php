@@ -24,19 +24,19 @@ class ItemCart extends ItemProduct {
     
     protected $quantity;
     
-    function __construct($id, $name, $imgSrc, $price, $quantity) {
+    function __construct(ItemProduct $product, $quantity) {
         $this->quantity = $quantity;
-        parent::__construct($id, $name, $imgSrc, $price);
+        parent::__construct($product->id, $product->name, $product->imgSrc, $product->price);
     }
     
     function info() {
         parent::info();
-        echo "Количество {$this->quantity}<br>";
+        echo "Количество в корзине: {$this->quantity}<br>";
     }
 }
 
 $a = new ItemProduct(1, 'sdfsd', 'dsfdsf', 50);
-$b = new ItemCart(1, 'dsfgsd', 'dsfdsf', 30, 4);
+$b = new ItemCart($a, 4);
 
 $a->info();
 $b->info();
