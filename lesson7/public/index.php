@@ -14,6 +14,8 @@ use app\engine\TwigRender;
 use app\engine\Request;
 
 
+try {
+    
 require_once '../vendor/autoload.php';
 //spl_autoload_register([new Autoload(), 'loadClass']);
 
@@ -53,8 +55,18 @@ if (class_exists($controllerClass)) {
     $controller = new $controllerClass(new Render());
     $controller->runAction($actionName);
 } else {
-    echo "404";
+    throw new \Exception("Контроллер не существует", 404);
 }
+    
+} catch (\PDOException $e) {
+      var_dump($e);
+}
+
+catch (\Exception $e) {
+    echo $e->getMessage();
+    //var_dump($e->getTrace());
+}
+
 
 
 
