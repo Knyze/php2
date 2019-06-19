@@ -1,0 +1,11 @@
+{
+    "require": {
+        "twig/twig": "1.42",
+        "phpunit/phpunit": "~5.7.27"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": ""
+        }
+    }
+}
