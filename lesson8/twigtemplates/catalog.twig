@@ -1,0 +1,23 @@
+<div class="attend">
+    <h2>НАШИ ТОВАРЫ</h2>
+    <div class="wrapAttend">
+
+        {% for item in products %}
+        <form action="?c=cart&a=1" method="post" class="wrapProduct">
+            <a href="?c=product&a=card&id={{ item.id }}">
+                <button type="submit" class="addProduct">
+                    Add to Cart
+                </button>
+                <div class="imgProduct">
+                    <img src="{{ imgDir }}{{ item.img }}" alt="{{ item.name }}">
+                </div>
+                <div class="textProduct">
+                    <h6>{{ item.name }}</h6>
+                    <p>${{ item.price }}</p>
+                </div>
+            </a>
+        </form>
+        {% endfor %}
+
+    </div>
+</div>
